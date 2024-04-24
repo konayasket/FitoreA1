@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Telc Results</title>
+    <style>
+
+
+        /* Basic styling for buttons */
+        .button {
+            display: inline-block;
+            padding: 3px 1px; /* Increased padding for a bit bigger size */
+            background-color: transparent; /* No background color */
+            color: #242323; /* Text color */
+            text-decoration: none;
+            border: none; /* No border for all buttons */
+            cursor: pointer;
+            font-family: Arial, ; /* Set the font to Arial */
+        }
+
+        /* Styling for the border around the text */
+        .button::before {
+            content: ''; /* Empty content for pseudo-element */
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            width: 0%; /* Increased width for a bit bigger border */
+            height: 100%; /* Increased height for a bit bigger border */
+            border: 1px solid #000; /* Border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+            opacity: 0; /* Initially invisible */
+            pointer-events: none; /* Don't capture mouse events */
+        }
+
+        .button-style {
+            background-color: rgb(170, 40, 40); /* Background color */
+            opacity: 1; /* Make the border visible */
+            color: white; /* Text color */
+        }
+        /* Style for Button 4 */
+        .button-style.button-4 {
+            width: auto; /* Allow the width to adjust based on content */
+            font-size: 17px; /* Increase font size for Button 4 */
+        }
+        
+
+        /* Container for buttons and line */
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative; /* Positioning for the line and logo */
+        }
+
+        /* Line underneath the buttons */
+        .line {
+            width: 95%; /* Set the width of the line */
+            height: 1px; /* Height of the line */
+            background-color: #807d7d; /* Color of the line */
+            margin: auto; /* Center the line horizontally */
+            position: relative; /* Position the line relative to the container */
+            top: 0px; /* Adjust the position of the line */
+        }
+
+        .line2 {
+            width: 95%; /* Set the width of the line */
+            height: 1px; /* Height of the line */
+            background-color: #807d7d; /* Color of the line */
+            margin: auto; /* Center the line horizontally */
+            position: relative; /* Position the line relative to the container */
+            top: 110px; /* Adjust the position of the line */
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            left: -10px; /* Align the logo to the left side of the container */
+            top: calc(100% + 10px); /* Align the logo underneath the line */
+            width: 86px;
+            padding-top: 19px;
+            padding-left: 20px;
+        }
+        
+        .logouser {
+            position: absolute; /* Position the logo absolutely */
+            left: -12px; /* Align the logo to the left side of the container */
+            top: calc(0% ); /* Align the logo underneath the line */
+            width: 18px;
+            padding-top: 5px;
+            padding-left: 130px;
+        }
+
+         /* Vertical line */
+         .vertical-line {
+            position: absolute;
+            top: 0;
+            left: calc(8% + 0px); /* Adjust the position of the line */
+            height: 24px; /* Set the height of the line */
+            width: 1px; /* Set the width of the line */
+            background-color: #5e5c5c; /* Color of the line */
+        }
+        /* DE text */
+        .de-text {
+            position: absolute; /* Position the DE text absolutely */
+            right: 65px; /* Adjust the position of the DE text */
+            top: calc(100% + 40px); /* Align the DE text underneath the line */
+            font-size: 17px; /* Set the font size of the DE text */
+            color: rgb(170, 40, 40);;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif ;
+        }
+        /* Underline for DE text */
+        .underline {
+            position: absolute; /* Position the underline absolutely */
+            right: 55px; /* Adjust the position of the underline */
+            top: calc(100% + 63px); /* Align the underline underneath the DE text */
+            width: 35px; /* Set the width of the underline */
+            height: 3px; /* Set the height of the underline */
+            background-color: rgb(170, 40, 40);; /* Color of the underline */
+            
+        }
+        
+        
+
+        /* Heading */
+        .heading {
+            position: relative; /* Position the heading */
+            text-align: left; /* Center the heading */
+            margin-top: 160px; /* Add space between the heading and the lines */
+            font-size: 46px; /* Set the font size of the heading */
+            margin-left: 20px;
+            color: #222121;
+            
+        }
+
+        /* Vertical line for heading */
+        .heading::before {
+            content: ''; /* Empty content for pseudo-element */
+            position: absolute;
+            top: 50%;
+            left: -20px; /* Position the line to the left of the heading */
+            transform: translateY(-50%);
+            width: 6px; /* Set the width of the line */
+            height: 80%; /* Set the height of the line */
+            background-color: rgb(170, 40, 40); /* Color of the line */
+        }
+        .heading2 {
+            position: relative; /* Position the heading */
+            text-align: left; /* Center the heading */
+            margin-top: 45px; /* Add space between the heading and the lines */
+            font-size: 20px; /* Set the font size of the heading */
+            margin-left: 0px;
+            color: #000000a8;
+            font-weight: 100;
+        }
+        .zertifikat {
+            position: relative; /* Position the heading */
+            text-align: left; /* Center the heading */
+            margin-top: 40px; /* Add space between the heading and the lines */
+            font-size: 79px; /* Set the font size of the heading */
+            margin-left: 9px;
+            color: #222121;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 540;
+            
+        }
+        
+        .b2 {
+            position: relative; /* Position the heading */
+            text-align: left; /* Center the heading */
+            margin-top: 40px; /* Add space between the heading and the lines */
+            font-size: 24px; /* Set the font size of the heading */
+            margin-left: 9px;
+            color: #222121;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            
+        }
+        .b1b1 {
+            position: relative; /* Position the heading */
+            text-align: left; /* Center the heading */
+            margin-top: -18px; /* Add space between the heading and the lines */
+            font-size: 20px; /* Set the font size of the heading */
+            margin-left: 9px;
+            color: #111111d3;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: normal;
+        }
+
+        /* Style for the third line */
+        .line3 {
+         width: 97%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 65px;
+         margin-left: 9px;
+         font-size: 20px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+     
+        .line4 {
+         width: 97%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 60px;
+         margin-left: 9px;
+         font-size: 20px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .line5 {
+         width: 97%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 60px;
+         margin-left: 9px;
+         font-size: 20px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .line6 {
+         width: 97%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 59px;
+         margin-left: 9px;
+         font-size: 20px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .text-above-line {
+         position: absolute;
+         top: 771px; /* Adjust the vertical position as needed */
+          left: 21px; /* Adjust the horizontal position as needed */
+          font-size: 21px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }   
+        .text-above-linevorname {
+         position: absolute;
+         top: 831px; /* Adjust the vertical position as needed */
+          left: 19px; /* Adjust the horizontal position as needed */
+          font-size: 21px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .text-above-linegeburstdatum {
+         position: absolute;
+         top: 895px; /* Adjust the vertical position as needed */
+          left: 21px; /* Adjust the horizontal position as needed */
+          font-size: 21px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }   
+        .text-above-linegebursort {
+         position: absolute;
+         top: 955px; /* Adjust the vertical position as needed */
+          left: 21px; /* Adjust the horizontal position as needed */
+          font-size: 21px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .prufung {
+            position: absolute;
+         top: 1065px; /* Adjust the vertical position as needed */
+          left: 15px; /* Adjust the horizontal position as needed */
+          font-size: 20px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .piketprufung {
+            position: absolute;
+         top: 1106px; /* Adjust the vertical position as needed */
+          left: 225px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderprufung {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 147px;
+         margin-left: 211px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .piketprufung2 {
+            position: absolute;
+         top: 1107px; /* Adjust the vertical position as needed */
+          left: 276px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .piketprufung3 {
+            position: absolute;
+         top: 1105px; /* Adjust the vertical position as needed */
+          left: 288px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .leseverstehen {
+            position: absolute;
+         top: 1158px; /* Adjust the vertical position as needed */
+          left: 10px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketlese {
+            position: absolute;
+         top: 1195px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        .lineunderlese{
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 91px;
+         margin-left: 210px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Leseverstehen2 {
+            position: absolute;
+         top: 1198px; /* Adjust the vertical position as needed */
+          left: 274px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Leseverstehen3 {
+            position: absolute;
+         top: 1196px; /* Adjust the vertical position as needed */
+          left: 288px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .Sprachbausteine {
+            position: absolute;
+         top: 1258px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketsprach {
+            position: absolute;
+         top: 1295px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineundersprache {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 101px;
+         margin-left: 211px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Sprachbausteine2 {
+            position: absolute;
+         top: 1298px; /* Adjust the vertical position as needed */
+          left: 275px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Sprachbausteine3 {
+            position: absolute;
+         top: 1295px; /* Adjust the vertical position as needed */
+          left: 288px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        
+        .Horverstehen {
+            position: absolute;
+         top: 1358px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .pikethor {
+            position: absolute;
+         top: 1392px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineunderhor {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 96px;
+         margin-left: 214px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Horverstehen2 {
+            position: absolute;
+         top: 1399px; /* Adjust the vertical position as needed */
+          left: 279px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Horverstehen3 {
+            position: absolute;
+         top: 1396px; /* Adjust the vertical position as needed */
+          left: 290px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+
+        .Schriftlicher  {
+            position: absolute;
+         top: 1448px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketschrift {
+            position: absolute;
+         top: 1482px; /* Adjust the vertical position as needed */
+          left: 230px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineunderschrift {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 86px;
+         margin-left: 215px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Schriftlicher2 {
+            position: absolute;
+         top: 1485px; /* Adjust the vertical position as needed */
+          left: 279px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Schriftlicher3  {
+            position: absolute;
+         top: 1482px; /* Adjust the vertical position as needed */
+          left: 290px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+
+        .Mundliche  {
+            position: absolute;
+         top: 1540px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .piketmund {
+            position: absolute;
+         top: 1572px; /* Adjust the vertical position as needed */
+          left: 229px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineundermund {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 87px;
+         margin-left: 214px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Mundliche2  {
+            position: absolute;
+         top: 1572px; /* Adjust the vertical position as needed */
+          left: 279px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Mundliche3  {
+            position: absolute;
+         top: 1572px; /* Adjust the vertical position as needed */
+          left: 288px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+
+        .presentation  {
+            position: absolute;
+         top: 1618px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketpresentation {
+            position: absolute;
+         top: 1657px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineunderpresentation {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 85px;
+         margin-left: 211px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .presentation2 {
+            position: absolute;
+         top: 1660px; /* Adjust the vertical position as needed */
+          left: 276px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .presentation3  {
+            position: absolute;
+         top: 1658px; /* Adjust the vertical position as needed */
+          left: 287px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        
+        
+        .Diskussion  {
+            position: absolute;
+         top: 1702px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketDiskussion{
+            position: absolute;
+         top: 1737px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineunderDiskussion {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 79px;
+         margin-left: 210px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Diskussion2 {
+            position: absolute;
+         top: 1741px; /* Adjust the vertical position as needed */
+          left: 275px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Diskussion3  {
+            position: absolute;
+         top: 1739px; /* Adjust the vertical position as needed */
+          left: 285px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        
+        
+        .Problemlosung  {
+            position: absolute;
+         top: 1779px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #585252dc; /* Adjust the color as needed */
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .piketProblemlosung{
+            position: absolute;
+         top: 1814px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .lineunderProblemlosung {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 75px;
+         margin-left: 210px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .Problemlosung2 {
+            position: absolute;
+         top: 1817px; /* Adjust the vertical position as needed */
+          left: 275px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .Problemlosung3  {
+            position: absolute;
+         top: 1816px; /* Adjust the vertical position as needed */
+          left: 284px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+
+        .summe  {
+            position: absolute;
+         top: 1898px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .piketsumme {
+            position: absolute;
+         top: 1927px; /* Adjust the vertical position as needed */
+          left: 222px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineundersumme {
+         width: 12%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 114px;
+         margin-left: 208px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+        .summe2  {
+            position: absolute;
+         top: 1930px; /* Adjust the vertical position as needed */
+          left: 272px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .summe3  {
+            position: absolute;
+         top: 1927px; /* Adjust the vertical position as needed */
+          left: 284px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+
+        .pradikat  {
+            position: absolute;
+         top: 1992px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .piketpradiakt {
+            position: absolute;
+         top: 2034px; /* Adjust the vertical position as needed */
+          left: 228px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderpradikat {
+         width: 35%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 109px;
+         margin-left: 192px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+
+
+        .DatumderPrufung  {
+            position: absolute;
+         top: 2118px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .piketDatumderPrufung {
+            position: absolute;
+         top: 2150px; /* Adjust the vertical position as needed */
+          left: 229px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderDatumderPrufung {
+         width: 35%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 74px;
+         margin-left: 192px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+
+
+        .Teilnehmernummer  {
+            position: absolute;
+         top: 2229px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .piketTeilnehmernummer{
+            position: absolute;
+         top: 2272px; /* Adjust the vertical position as needed */
+          left: 229px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderTeilnehmernummer{
+         width: 35%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 120px;
+         margin-left: 188px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+
+
+        .DatumderAusstellung  {
+            position: absolute;
+         top: 2339px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .piketDatumderAusstellung{
+            position: absolute;
+         top: 2379px; /* Adjust the vertical position as needed */
+          left: 225px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderDatumderAusstellung{
+         width: 35%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 108px;
+         margin-left: 188px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+
+
+        
+        .Prufungszentrum  {
+            position: absolute;
+         top: 2440px; /* Adjust the vertical position as needed */
+          left: 8px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #333; /* Adjust the color as needed */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .piketPrufungszentrum{
+            position: absolute;
+         top: 2486px; /* Adjust the vertical position as needed */
+          left: 190px; /* Adjust the horizontal position as needed */
+          font-size: 18px; /* Adjust the font size as needed */
+          color: #0c0c0cdc; /* Adjust the color as needed */
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .lineunderPrufungszentrum{
+         width: 40%;
+         height: 1px;
+         background-color: #030303;
+         margin-top: 108px;
+         margin-left: 178px;
+         font-size: 18px;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: rgba(2, 2, 2, 0.733);
+        }
+
+
+        
+      
+
+      </style>
+</head>
+<body>
+    <!-- Container for buttons at the top of the page -->
+    <div class="button-container">
+        <a href="#" class="button">telc.net</a>
+        <a href="#" class="button">Campus</a>
+        <a href="#" class="button">Training</a>
+        <a href="#" class="button button-style button-4">Community</a>
+        <a href="#" class="button">Shop</a>
+        <!-- Line underneath the buttons -->
+        <div class="line"></div>
+        <!-- Logo -->
+        <img src="telc.png" alt="Your Logo" class="logo">
+        <div class="de-text">DE</div>
+        <div class="underline"></div>
+        <div class="line2"></div>
+        <img src="logo2tlc.png" alt="Logo 2" class="logouser" style="left: -120px;">
+    </div>
+
+    <h1 class="heading">Verifikation von telc Zertifikaten</h1>
+    <h4 class="heading2">Hier können Sie die Ergebnisse des Ihnen vorliegenden telc Zertifikats verifizieren. 
+        Vergleichen Sie dazu die folgende Anzeige mit dem Ihnen vorgelegten Ausdruck des <br>Zertifikats.</h5>
+
+    <h1 class="zertifikat">Zertifikat</h1>    
+    <h3 class="b2">telc Deutsch A1</h3>
+    <h4 class="b1b1">Europaratsstufe A1 · Council of Europe level A1
+    </h4>
+
+    <div class="line3">Name</div>
+    <div class="text-above-line">Hoti </div>
+
+    <div class="line4">Vorname</div>
+    <div class="text-above-linevorname">Fitore </div>
+
+    <div class="line5">Geburtsdatum</div>
+    <div class="text-above-linegeburstdatum">14.07.1999</div>
+
+    <div class="line6">Geburtsort</div>
+    <div class="text-above-linegebursort">Prizren / XXK </div>
+
+    <div class="prufung">Schriftliche Prüfung </div>
+    <div class="piketprufung">169,0 </div>
+    <div class="lineunderprufung"></div>
+    <div class="piketprufung2">/</div>
+    <div class="piketprufung3"> 225 Punkte</div>
+
+    <div class="leseverstehen">· Leseverstehen</div>
+    <div class="piketlese">57,5 </div>
+    <div class="lineunderlese"></div>
+    <div class="Leseverstehen2">/</div>
+    <div class="Leseverstehen3"> 75 Punkte</div>
+
+
+    <div class="Sprachbausteine">· Sprachbausteine </div>
+    <div class="piketsprach">27,0 </div>
+    <div class="lineundersprache"></div>
+    <div class="Sprachbausteine2">/</div>
+    <div class="Sprachbausteine3"> 30 Punkte</div>
+
+
+    <div class="Horverstehen">· Hörverstehen </div>
+    <div class="pikethor">58,5 </div>
+    <div class="lineunderhor"></div>
+    <div class="Horverstehen2">/</div>
+    <div class="Horverstehen3"> 75 Punkte</div>
+
+
+    <div class="Schriftlicher ">· Schriftlicher Ausdruck</div>
+    <div class="piketschrift">26,0 </div>
+    <div class="lineunderschrift"></div>
+    <div class="Schriftlicher2 ">/</div>
+    <div class="Schriftlicher3 "> 45 Punkte</div>
+
+    
+    <div class="Mundliche ">Mündliche Prüfung </div>
+    <div class="piketmund">61,5 </div>
+    <div class="lineundermund"></div>
+    <div class="Mundliche2 ">/</div>
+    <div class="Mundliche3 "> 75 Punkte</div>
+
+    <div class="presentation ">· Präsentation </div>
+    <div class="piketpresentation">19,0</div>
+    <div class="lineunderpresentation"></div>
+    <div class="presentation2 ">/</div>
+    <div class="presentation3 "> 25 Punkte</div>
+    
+
+    <div class="Diskussion ">· Diskussion </div>
+    <div class="piketDiskussion">21,5</div>
+    <div class="lineunderDiskussion"></div>
+    <div class="Diskussion2 ">/</div>
+    <div class="Diskussion3 "> 25 Punkte</div>
+
+
+    <div class="Problemlosung">· Problemlösung </div>
+    <div class="piketProblemlosung">21,0</div>
+    <div class="lineunderProblemlosung"></div>
+    <div class="Problemlosung2 ">/</div>
+    <div class="Problemlosung3 "> 25 Punkte</div>
+
+    
+    <div class="summe">Summe</div>
+    <div class="piketsumme">230,5</div>
+    <div class="lineundersumme"></div>
+    <div class="summe2 ">/</div>
+    <div class="summe3 "> 300 Punkte</div>
+
+
+    <div class="pradikat">Prädikat </div>
+    <div class="piketpradiakt">Befriedigend</div>
+    <div class="lineunderpradikat"></div>
+    <br> <br>
+    
+    <div class="DatumderPrufung">Datum der Prüfung </div>
+    <div class="piketDatumderPrufung">11.04.2024</div>
+    <div class="lineunderDatumderPrufung"></div>
+
+
+    <div class="Teilnehmernummer">Teilnehmernummer </div>
+    <div class="piketTeilnehmernummer">9364851</div>
+    <div class="lineunderTeilnehmernummer"></div>
+
+
+    <div class="DatumderAusstellung">Datum der Ausstellung </div>
+    <div class="piketDatumderAusstellung">25.04.2024</div>
+    <div class="lineunderDatumderAusstellung"></div>
+
+
+    <div class="Prufungszentrum"> Prüfungszentrum </div>
+    <div class="piketPrufungszentrum">Inlingua Augsburg</div><br>
+    <div class="lineunderPrufungszentrum"></div>
+
+    <br> <br>
+    <br> <br>
+    
+
+</body>
+</html> 
